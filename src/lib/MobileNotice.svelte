@@ -9,7 +9,6 @@
         </span> 
     </div>
 
-    <!-- animation-->
     <div class="containerLeaf">
         <div class="sakura"><span></span><span></span><span></span><span></span>
             <span></span><span></span><span></span><span></span><span></span>

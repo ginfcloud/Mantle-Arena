@@ -29,7 +29,7 @@
     let mintedNftContract = "";
 
     // Constants
-    const mintContract = "0xe0F423922C164Ed8c197C10b484D972d6cFF63Ca";
+    const mintContract = "0x1b62Ad7901996A8a865998Ba4BD48d9200EB2c40";
 
     // Export close function for parent component
     export let isShowMintFree = true;
@@ -318,7 +318,6 @@
 <div data-onboard="showQuickMintElement" class="flex flex-col justify-center items-center fixed justify-center font-semibold inset-0 bg-black bg-opacity-90 z-50 font-geo" in:fade={{ duration: 300 }} out:fade={{ duration: 300 }}> 
     {#if !isSuccess}
         <div class="z-10 text-white relative flex flex-col justify-center items-center self-center min-h-[40vw] max-h-[40vw] w-[40vw]">
-            <!-- Quick mint NFT -->
             <div class="flex flex-col items-center">
                 <img src="/game/demo.webp" class="h-[16vw]"/>
                 <button 
@@ -329,7 +328,6 @@
 
             </div>
 
-            <!-- Quick generate skill for NFT -->
             <div class="flex flex-col w-full items-center border-t mt-[2vw] gap-[0.1vw]">
                 <span class="text-[0.9vw] mt-[1vw] font-normal text-gray-200">
                     Already have a NFT on Mantle chain?
@@ -341,7 +339,7 @@
                     </button>
                 {:else}
                     <button class="flex justify-start items-start mb-[0.2vw] text-[0.8vw] text-darkGray underline hover:text-buttonHover" 
-                        on:click={() => window.open(`${config.blockExplorerUrls}/address/${userAddress}#tokentxnsErc721`, "_blank")}>
+                        on:click={() => window.open(`${config.blockExplorerUrls}/address/${userAddress}?tab=token_transfers&type=URC-721#asset-nfts`, "_blank")}>
                         View your NFTs you own on block explorer
                     </button>
                     <div class="flex flex-col gap-[0.2vw]">
@@ -368,7 +366,6 @@
             </div>
         </div>
     {:else}
-        <!-- Success state - showing NFT details -->
         <div class="z-10 text-white relative flex flex-col justify-center items-center self-center w-[50vw]">
             <div class="flex flex-col rounded-md w-[35vw]" in:slide={{ duration: 300 }}>
                 <div class="flex flex-col p-[1vw] bg-arenaMedium rounded-md">
@@ -464,7 +461,6 @@
         </button>
     {/if}
 
-    <!-- Error handling UI -->
     {#if generalError}
         <div class="absolute text-[1.5vw] bottom-0 right-[20vw] mb-[3vw] bg-red-500 px-[1vw] py-[0.5vw] rounded-md z-50" 
             in:slide={{ duration: 200 }} out:slide={{ duration: 200 }}>
@@ -472,7 +468,6 @@
         </div>
     {/if}
 
-    <!-- Loading state -->
     {#if loading}
         <div class="z-50">
             <Loading/>

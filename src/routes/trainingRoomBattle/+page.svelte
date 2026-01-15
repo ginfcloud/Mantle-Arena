@@ -1651,41 +1651,42 @@
     });
 </script>
 
-<div data-onboard="allGame" class="relative flex flex-col w-full min-h-screen font-Hoves bg-black text-white overflow-hidden">
+<div data-onboard="allGame" class="relative flex flex-col w-full min-h-screen font-Hoves text-white overflow-hidden bg-black/95 backdrop-blur-xl border border-stone-700/80 shadow-[0_10px_30px_rgba(0,0,0,0.9)]">
+
     <div class="flex relative w-[100vw] h-[45vw] m-auto bg-cover rounded-md text-[1vw] bg-yellow-500">
         <div class="absolute flex w-[10vw] h-full z-10">
         </div>
         <img class="absolute h-full z-10 left-[8vw]" alt="chain" src="/game/elements/chain.svg"/>
 
         <div class="absolute flex flex-col z-30 left-[4vw] h-full justify-between py-[2vw]">
-            <div class="flex flex-col justify-center items-center bg-darkStone w-[12vw] h-[5vw] border-[0.2vw] border-lightStone rounded-md">
+            <div class="flex flex-col justify-center items-center bg-darkStone w-[12vw] h-[5vw] backdrop-blur-xl border border-stone-700/80 shadow-[0_10px_30px_rgba(0,0,0,0.9)] rounded-md">
                 <span class="text-[0.9vw] text-[#C7A869]">
-                    Player <!-- MODIFIED: Changed from "Attacker" -->
+                    Player 
                 </span>
                 <span class="text-[1.1vw] font-semibold">
                     {emitBetweenText(challengerAddress, 10)}
                 </span>
             </div>
-            <div class="flex flex-col justify-center items-center bg-darkStone w-[12vw] h-[5vw] border-[0.2vw] border-lightStone rounded-md">
+            <div class="flex flex-col justify-center items-center bg-darkStone w-[12vw] h-[5vw] backdrop-blur-xl border border-stone-700/80 shadow-[0_10px_30px_rgba(0,0,0,0.9)] rounded-md">
                 <span class="text-[0.9vw] text-[#C7A869]">
-                    Bot <!-- MODIFIED: Changed from "Defender" -->
+                    Bot 
                 </span>
                 <span class="text-[1.1vw] font-semibold">
-                    Slime Bot <!-- MODIFIED: Show "Training Bot" -->
+                    Slime Bot 
                 </span>
             </div>        
         </div>
         {#if speedButtonDisplay}
             <button 
             data-onboard="toggle-speed"
-            class="absolute flex items-center top-[1vw] right-[16vw] z-20 bg-darkStone border-[0.2vw] border-lightStone rounded-md px-[1vw] py-[0.5vw] text-[1vw] hover:bg-gray-700 flex items-center gap-[0.5vw]" 
+            class="absolute flex items-center top-[1vw] right-[16vw] z-20 bg-darkStone backdrop-blur-xl border border-stone-700/80 shadow-[0_10px_30px_rgba(0,0,0,0.9)] rounded-md px-[1vw] py-[0.5vw] text-[1vw] hover:bg-gray-700 flex items-center gap-[0.5vw]" 
             on:click={()=>{trackButtonClick('toggleGameSpeed'), toggleGameSpeed()}}>
                 <img class="h-[1.1vw]" alt="Speed" src="/game/elements/toggleSpeed.svg"/>
                 <span>{gameSpeedText}</span>
             </button>
             <!--Prevent exit during training-->
             {#if $onboardingStore.status !=="active"}
-                <button class="absolute flex items-center top-[1vw] right-[10vw] z-20 bg-red-600 hover:bg-red-800 rounded-md border-[0.2vw] border-lightStone  px-[1vw] py-[0.5vw] text-[1vw] flex items-center gap-[0.5vw]" 
+                <button class="absolute flex items-center top-[1vw] right-[10vw] z-20 bg-red-600 hover:bg-red-800 rounded-md backdrop-blur-xl border border-stone-700/80 shadow-[0_10px_30px_rgba(0,0,0,0.9)] rounded-md  px-[1vw] py-[0.5vw] text-[1vw] flex items-center gap-[0.5vw]" 
                 on:click={()=>{
                     trackButtonClick('exit-training');
                     window.location.href = './'}}>
@@ -1697,15 +1698,15 @@
         <div data-onboard="game-container" class="flex relative self-center h-full w-full" id="game-container" bind:this={gameContainer}>
             {#if gameEnd === true}
             <div class="absolute flex justify-center items-center z-20 h-full w-full bg-black bg-opacity-70" in:fade={{ duration: 300 }}>
-                <div class="flex flex-col justify-center items-center w-[40vw] h-[15vw] bg-darkStone self-center  border-[0.2vw] border-lightStone rounded-md">
+                <div class="flex flex-col justify-center items-center w-[40vw] h-[15vw] bg-darkStone self-center backdrop-blur-xl border border-stone-700/80 shadow-[0_10px_30px_rgba(0,0,0,0.9)] rounded-md">
                     {#if userAddress === winnerAddress && winner!==-1}
                         <img alt="You Win" class="h-[5vw]" src="/game/elements/youWin.svg"/>
                         <div class="flex items-center gap-[0.5vw]">
-                            <span class="text-[2vw] font-semibold text-green">Training Complete!</span> <!-- MODIFIED: Training message -->
+                            <span class="text-[2vw] font-semibold text-green">Training Complete!</span> 
                         </div>
                         <div class="flex gap-[1vw] text-[1.1vw] font-semibold mt-[1vw]">
                             <button class="flex items-center gap-[0.5vw] text-white bg-[#236E11] hover:bg-greenHover py-[0.2vw] px-[1vw] rounded-md" on:click={()=>{location.reload()}}>
-                                <span>Replay<span/> <!-- MODIFIED: Button text -->
+                                <span>Replay<span/> 
                                 <img class="h-[1.1vw] inline" alt="Replay" src="/game/elements/reload.svg"/>
                             </button>
                             <button data-onboard="exit-training" class="flex items-center text-white bg-red-600 hover:bg-red-800 py-[0.2vw] px-[1vw] rounded-md" 
@@ -1719,11 +1720,11 @@
                     {:else if userAddress !== winnerAddress && winner!==-1 }    
                         <img alt="You Lose" class="h-[5vw]" src="/game/elements/youLose.svg"/>
                         <div class="flex items-center gap-[0.5vw]">
-                            <span class="text-[2vw] font-semibold text-red-500">Try Again!</span> <!-- MODIFIED: Training message -->
+                            <span class="text-[2vw] font-semibold text-red-500">Try Again!</span> 
                         </div> 
                         <div class="flex gap-[1vw] text-[1.1vw] font-semibold mt-[1vw]">
                             <button class="flex items-center gap-[0.5vw] text-white bg-[#236E11] hover:bg-greenHover py-[0.2vw] px-[1vw] rounded-md" on:click={()=>{location.reload()}}>
-                                <span>Replay<span/> <!-- MODIFIED: Button text -->
+                                <span>Replay<span/> 
                                 <img class="h-[1.1vw] inline" alt="Replay" src="/game/elements/reload.svg"/>
                             </button>
                             <button data-onboard="exit-training" class="flex items-center text-white bg-red-600 hover:bg-red-800 py-[0.2vw] px-[1vw] rounded-md" 
@@ -1738,11 +1739,11 @@
                     {:else if winner ===-1 }    
                         <img alt="Draw" class="h-[5vw]" src="/game/elements/youLose.svg"/>
                         <div class="flex items-center gap-[0.5vw]">
-                            <span class="text-[2vw] font-semibold text-white">Training Complete!</span> <!-- MODIFIED: Training message -->
+                            <span class="text-[2vw] font-semibold text-white">Training Complete!</span>
                         </div> 
                         <div class="flex gap-[1vw] text-[1.1vw] font-semibold mt-[1vw]">
                             <button class="flex items-center gap-[0.5vw] text-white bg-[#236E11] hover:bg-greenHover py-[0.2vw] px-[1vw] rounded-md" on:click={()=>{location.reload()}}>
-                                <span>Replay<span/> <!-- MODIFIED: Button text -->
+                                <span>Replay<span/> 
                                 <img class="h-[1.1vw] inline" alt="Replay" src="/game/elements/reload.svg"/>
                             </button>
                             <button data-onboard="exit-training" class="flex items-center text-white bg-red-600 hover:bg-red-800 py-[0.2vw] px-[1vw] rounded-md" 
@@ -1759,24 +1760,19 @@
             {/if}
         </div>
 
-        <!-- Popup selected character -->
         {#if showCharacterPopup}
             <div class="absolute flex left-0 top-0 w-[18vw] h-full z-30 bg-black bg-opacity-80 text-white" transition:fade={{ duration: 200 }}>
                 <div class="flex flex-col h-full w-full relative px-[0.5vw]">
-                    <!-- Close button -->
                     <button 
                         class="absolute right-[0.5vw] flex self-end mb-[2vw]"
                         on:click={() => showCharacterPopup = false}
                     >
                         <img alt="close" class='h-[2vw]' src="/game/elements/closeRed.svg"/>
                     </button>
-                    <!-- Character image and basic info -->
                     <div class="flex flex-col items-center mb-[0.5vw] mt-[3vw]">
                         <div class="  mb-[1vw]">
-                            <!-- MODIFIED: Different image handling for bots vs players -->
                                 {#if characterPopupData.isBot}
-                                    <!-- For bots, show a placeholder or bot-specific image -->
-                                    <div class="w-[10vw] h-[10vw] overflow-hidden bg-darkStone border-[0.2vw] border-lightStone rounded-md">
+                                    <div class="w-[10vw] h-[10vw] overflow-hidden bg-darkStone backdrop-blur-xl border border-stone-700/80 shadow-[0_10px_30px_rgba(0,0,0,0.9)] rounded-md">
                                         <div 
                                             class="w-[40vw] h-[30vw]"
                                             style="background-image: url('/game/botAnimation/{gameData.defender[characterPopupData.position].sprite}.png'); 
@@ -1786,8 +1782,7 @@
                                         ></div>
                                     </div>
                                 {:else}
-                                <!-- For players, show NFT image as before -->
-                                 <div class="w-[10vw] h-[10vw] bg-darkStone border-[0.2vw] border-lightStone rounded-md overflow-hidden">
+                                 <div class="w-[10vw] h-[10vw] bg-darkStone backdrop-blur-xl border border-stone-700/80 shadow-[0_10px_30px_rgba(0,0,0,0.9)] rounded-md overflow-hidden">
                                     <img 
                                         class="w-full h-full object-cover" 
                                         alt="Character" 
@@ -1816,9 +1811,7 @@
                         {/if}
                     </div>
                     
-                    <!-- HP Container -->
                     <div class="w-full mb-[0.5vw]">
-                        <!-- HP bar -->
                         <div class="flex justify-center w-full h-[2vw] bg-darkStone border-[0.1vw] border-lightStone rounded-md overflow-hidden relative">
                             <div class="absolute inset-0 transition-all duration-500 ease-out" 
                                  style="width: {(characterPopupData.hp / characterPopupData.maxHp * 100)}%; 
@@ -1829,7 +1822,6 @@
                         </div>
                     </div>
                     
-                    <!-- Stats -->
                     <div class="grid grid-cols-2 gap-[1vw] mb-[0.3vw]">
                         <div class="flex gap-[1vw] items-center justify-center p-[0.2vw]">
                             <span class="text-[1vw]">{characterPopupData.atk}</span>
@@ -1841,7 +1833,6 @@
                         </div>
                     </div>
                     
-                    <!-- Skills -->
                     <div class="flex flex-col flex-grow">
                         <div class="text-[1.2vw] font-semibold text-[#C7A869]">Skills</div>
                         <div class="flex flex-col max-h-[21vw] min-h-[21vw] rounded-md overflow-y-scroll hide-scrollbar gap-[0.6vw] bg-black border-[0.1vw] border-lightStone p-[0.3vw]">
@@ -1860,7 +1851,7 @@
                 </div>
             </div>
         {/if}
-        <!-- Onboard user -->
+     
         <OnboardingManager {gameState} allLoading={false} />
 
     </div>

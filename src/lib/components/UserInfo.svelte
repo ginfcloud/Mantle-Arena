@@ -30,7 +30,7 @@
     }
 </script>
 
-<div class="absolute flex items-center bg-arenaDark w-[18vw] m-[0.2vw] gap-[0.8vw] pl-[1vw] pr-[2vw] py-[0.4vw] z-10 right-[0vw] rounded-full border border-arenaMedium">
+<div class="absolute bg-black/95 backdrop-blur-xl border border-stone-700/80 rounded-full px-[1.5vw] py-[0.8vw] shadow-[0_10px_30px_rgba(0,0,0,0.9)] flex items-center bg-arenaDark w-[18vw] m-[0.2vw] gap-[0.8vw] pl-[1vw] pr-[2vw] py-[0.4vw] z-10 right-[0vw] rounded-full border border-arenaMedium">
     <div 
         class="w-[3vw] h-[3vw] rounded-full flex-shrink-0"
         style="background: {getAddressColor(address)}"

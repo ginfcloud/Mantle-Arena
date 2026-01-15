@@ -14,7 +14,6 @@
         </p>
         
         <div class="flex flex-col gap-[1vw]">
-            <!-- Start Tutorial Button (Primary) -->
             <button 
                 class="w-full px-[1.2vw] py-[0.5vw] bg-button hover:bg-buttonHover rounded text-[0.9vw] text-white font-semibold transition-colors duration-200"
                 on:click={()=>{navigation = "hall"; resetEvents();resetOnboarding('newUser'); isShowTutorialPopUp = false}}
@@ -22,7 +21,6 @@
                 Start Tutorial
             </button>
 
-            <!-- Secondary Actions -->
             <div class="flex gap-[1vw] justify-between items-center">
                 <button 
                     class="px-[1.2vw] py-[0.4vw] bg-gray-600 hover:bg-gray-700 rounded text-[0.9vw] text-white transition-colors duration-200"

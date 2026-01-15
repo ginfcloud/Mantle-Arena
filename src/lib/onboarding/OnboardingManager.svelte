@@ -147,7 +147,6 @@ $: tooltipPosition = $currentStep?.toolkitPos ?
 </script>
 
 {#if $onboardingStore.status === 'active' && $currentStep && shouldShowStep && !allLoading}
-    <!-- Manual overlay when targetElement is "all" -->
   {#if $currentStep.targetElement === "all"}
     <div class="fixed inset-0 bg-black bg-opacity-50" style="z-index: 10000;"></div>
   {/if}
@@ -182,7 +181,6 @@ $: tooltipPosition = $currentStep?.toolkitPos ?
   {/if}
 {/if}
 
-<!-- Skip Tutorial Confirmation Dialog -->
 {#if showSkipConfirmation && $onboardingStore.status === 'active' && $currentStep && shouldShowStep && !allLoading}
    <div class="fixed inset-0 bg-black bg-opacity-60 flex items-center justify-center" style="z-index: 99000; pointer-events: auto;">
     <div class="bg-arenaDark border-2 border-button rounded-lg p-[2vw] max-w-[25vw] shadow-xl">

@@ -1781,7 +1781,7 @@ export const erc721Simple = [
 ];
 
 
-export const contractAddress = "0xaF24cAd4ef87494774494E6fc265e7432236F7eC"; 
+export const contractAddress = "0x24FF4C118ABC95E74932334FCB0FF717172c1A1d"; 
 
 export const contractAbi = [
     // Constructor

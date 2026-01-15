@@ -81,23 +81,14 @@ export function getUserOnboardingStatus(userAddress) {
 }
 
 export function closeOnboarding(flowType) {
-  onboardingStore.update(state => {
-    const newState = {
-      ...state,
-      status: 'finished',
-      currentStepIndex: 0,
-      currentFlow: flowType
-    };
-    
-    // Force immediate save
-    if (browser && state.userAddress) {
-      const key = `marena_onboarding_${state.userAddress}`;
-      localStorage.setItem(key, JSON.stringify(newState));
-    }
-    
-    return newState;
-  });
+   onboardingStore.update(state => ({
+     ...state,
+     status: 'finished',
+     currentStepIndex: 0,
+     currentFlow: flowType
+   }));
 }
+
 
 
 export function resetOnboarding(flowType) {
@@ -126,20 +117,10 @@ export function nextStep() {
 
 
 export function skipOnboarding() {
-  onboardingStore.update(state => {
-    const newState = {
-      ...state,
-      status: 'finished'
-    };
-    
-    // Force immediate save to localStorage
-    if (browser && state.userAddress) {
-      const key = `marena_onboarding_${state.userAddress}`;
-      localStorage.setItem(key, JSON.stringify(newState));
-    }
-    
-    return newState;
-  });
+  onboardingStore.update(state => ({
+    ...state,
+    status: 'finished'
+  }));
 }
 
 // Get current step info

@@ -1,4 +1,3 @@
-<!-- TrainingRoom.svelte -->
 <script>
     import { slide } from 'svelte/transition';
     import { fade } from 'svelte/transition';
@@ -67,19 +66,15 @@
 </script>
 
 <div class="flex flex-col items-center justify-center mt-[6vw] z-10 gap-[0.5vw] min-h-[31vw] max-h-[31vw]" in:fade={{ duration: 300 }}>
-    <!-- Training Room Header -->
     <div class="flex flex-col items-center gap-[0.2vw] w-full">
         <span class="text-[2vw] font-bold text-white">
             TRAINING ROOM
         </span>
     </div>
 
-    <!-- Training Arena Display -->
     {#if trainingStages[stageNavigation]}
         <div class="relative flex flex-col items-center justify-center rounded-lg min-h-[28vw] w-[70vw] p-[1vw] bg-arenaDark">
-            <!-- Background decorative elements -->
             <div class="relative h-[22vw] bg-black w-full">
-                <!--Mob info-->
                 <div class="absolute flex flex-col gap-[0.2vw] bg-black bg-opacity-70 px-[1vw] py-[0.5vw] left-0 top-0 w-[15vw] h-[5vw] rounded-b-md">
                     <span class="text-[1.2vw] text-button font-semibold">
                         {trainingStages[stageNavigation].stageName}
@@ -113,14 +108,12 @@
                     <div></div>
                 {/if}
             </div>
-            <!--Chaining decoration-->
             <div class="absolute flex overflow-hidden w-full h-[1.6vw] bottom-[2.2vw]">
                 <img src="game/ui/chain.svg" class="h-[1.6vw] w-full" alt="chain"/>
             </div>
 
             
 
-            <!-- Fight Button -->
             <button  data-onboard="training-fight-button"
                 class="flex justify-center items-center bg-gradient-to-b from-amber-500 to-amber-700 hover:from-amber-400 hover:to-amber-600 text-white font-bold text-[1.4vw] my-[0.5vw] px-[4vw] py-[0.4vw] rounded-lg border-[0.2vw] border-amber-300 shadow-lg transform hover:scale-105 transition-all duration-200"
                 on:click={() => { 
@@ -138,7 +131,6 @@
     {/if}
 </div>
 
-<!-- Training Squad Selection Popup -->
 {#if trainingPopUp}
     <div class="absolute font-semibold flex flex-col items-center inset-0 bg-black bg-opacity-70 z-30 text-white w-full" 
          in:fade={{ duration: 200 }} out:fade={{ duration: 200 }}>
@@ -147,7 +139,6 @@
                 <img class="absolute h-[3vw] inline-block right-[1vw]" alt="close icon" src="/game/ui/close.svg"/>
             </button>
             
-            <!-- Squad Selection -->
             <SelectSquad 
                 {items}
                 {loading}
