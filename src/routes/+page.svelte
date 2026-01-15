@@ -1890,7 +1890,7 @@
             </span>
             <div class="flex flex-col items-center gap-[0.5vw] absolute z-[20]  text-[1.5vw] self-center bottom-[4vw] font-bold text-white">
                 <span>
-                    Battle with any ERC-721 / URC-721 NFT in a PvP game
+                    Battle with any ERC-721 NFT in a PvP game
                 </span>
                 <span>
                     In-game skills are auto-generated and unique based on the NFT's trait name
